@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: nginx
+   labels:
+      env: test
+spec:
+   replicas: 8
+   selector:
+      matchLabels:
+         app: nginx
+   template:
+      metadata:
+         labels:
+            app: nginx
+      spec:
+        containers:
+        - name: nginx
+          image: nginx
+          imagePullPolicy: IfNotPresent
+          ports:
+             - containerPort: 80
+        tolerations:
+        - key: "myt"
+          operator: "Exists"
+          effect: "NoSchedule"
