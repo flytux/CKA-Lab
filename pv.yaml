@@ -1,3 +1,7 @@
+# Add local persistent volume and persistent volume claim
+# storageClassName --> manual
+# hostPath: "mnt/data"
+
 kind: PersistentVolume
 apiVersion: v1
 metadata:
